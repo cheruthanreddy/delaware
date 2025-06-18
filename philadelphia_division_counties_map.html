@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9862e8e6968f543c2e13b3f8421d1f82 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background-color: white; color: black; font-family: Arial; font-size: 14px; padding: 5px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9862e8e6968f543c2e13b3f8421d1f82" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9862e8e6968f543c2e13b3f8421d1f82 = L.map(
+                "map_9862e8e6968f543c2e13b3f8421d1f82",
+                {
+                    center: [39.90020415194514, -75.25285774977792],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9ea533f6d560fdf036f6b71215c7338f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9ea533f6d560fdf036f6b71215c7338f.addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+        function geo_json_3b53acb66c2eaca9990f46584c4f8710_styler(feature) {
+            switch(feature.id) {
+                case "34007": case "34015": case "34033": case "34005": 
+                    return {"color": "black", "fillColor": "green", "fillOpacity": 0.5, "weight": 2};
+                case "10003": 
+                    return {"color": "black", "fillColor": "orange", "fillOpacity": 0.5, "weight": 2};
+                default:
+                    return {"color": "black", "fillColor": "pink", "fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_3b53acb66c2eaca9990f46584c4f8710_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "yellow", "weight": 4};
+            }
+        }
+
+        function geo_json_3b53acb66c2eaca9990f46584c4f8710_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_3b53acb66c2eaca9990f46584c4f8710.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_3b53acb66c2eaca9990f46584c4f8710_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_3b53acb66c2eaca9990f46584c4f8710 = L.geoJson(null, {
+                onEachFeature: geo_json_3b53acb66c2eaca9990f46584c4f8710_onEachFeature,
+            
+                style: geo_json_3b53acb66c2eaca9990f46584c4f8710_styler,
+            ...{
+}
+        });
+
+        function geo_json_3b53acb66c2eaca9990f46584c4f8710_add (data) {
+            geo_json_3b53acb66c2eaca9990f46584c4f8710
+                .addData(data);
+        }
+            geo_json_3b53acb66c2eaca9990f46584c4f8710_add({"features": [{"geometry": {"coordinates": [[[-75.13322, 39.922512], [-75.085754, 39.967572], [-75.072017, 39.980612], [-75.056039, 39.991795], [-75.035461, 39.995951], [-75.010146, 39.979768], [-75.019212, 39.967462], [-75.018723, 39.963664], [-75.017468, 39.963509], [-75.016653, 39.960623], [-75.017537, 39.959087], [-75.013114, 39.956433], [-75.01345, 39.954188], [-75.014966, 39.946546], [-74.994442, 39.939266], [-74.988925, 39.94105], [-74.974879, 39.938382], [-74.984549, 39.931238], [-74.983717, 39.92694], [-74.964146, 39.920683], [-74.951823, 39.90147], [-74.932174, 39.887532], [-74.926935, 39.873839], [-74.903267, 39.791247], [-74.902546, 39.790797], [-74.889062, 39.781804], [-74.876499, 39.781647], [-74.845183, 39.79], [-74.812471, 39.785269], [-74.791478, 39.772119], [-74.772894, 39.750929], [-74.758064, 39.743695], [-74.736309, 39.729909], [-74.801051, 39.674102], [-74.877189, 39.608288], [-74.930585, 39.69085], [-75.08707, 39.779576], [-75.153925, 39.906144], [-75.13322, 39.922512]]], "type": "Polygon"}, "id": "34007", "properties": {"CENSUSAREA": 221.263, "COUNTY": "007", "GEO_ID": "0500000US34007", "LSAD": "County", "NAME": "Camden", "STATE": "34"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.210972, 39.865706], [-75.210425, 39.865913], [-75.184952, 39.881615], [-75.153925, 39.906144], [-75.08707, 39.779576], [-74.930585, 39.69085], [-74.877189, 39.608288], [-74.911566, 39.57862], [-74.985223, 39.514802], [-75.061973, 39.568643], [-75.199706, 39.666912], [-75.326452, 39.689992], [-75.378232, 39.745763], [-75.440623, 39.780926], [-75.437938, 39.783413], [-75.416095, 39.79583], [-75.415041, 39.801786], [-75.390169, 39.816549], [-75.374635, 39.82577], [-75.3065, 39.849812], [-75.271159, 39.84944], [-75.235026, 39.856613], [-75.210972, 39.865706]]], "type": "Polygon"}, "id": "34015", "properties": {"CENSUSAREA": 322.005, "COUNTY": "015", "GEO_ID": "0500000US34015", "LSAD": "County", "NAME": "Gloucester", "STATE": "34"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.440623, 39.780926], [-75.378232, 39.745763], [-75.326452, 39.689992], [-75.199706, 39.666912], [-75.061973, 39.568643], [-75.084187, 39.45796], [-75.239529, 39.559188], [-75.368213, 39.456479], [-75.407294, 39.381954], [-75.422099, 39.386521], [-75.431803, 39.391625], [-75.442393, 39.402291], [-75.465212, 39.43893], [-75.476279, 39.438126], [-75.483572, 39.440824], [-75.505672, 39.452927], [-75.508383, 39.459131], [-75.536431, 39.460559], [-75.542894, 39.470447], [-75.544368, 39.479602], [-75.542693, 39.496568], [-75.528088, 39.498114], [-75.527141, 39.500112], [-75.514756, 39.562612], [-75.511932, 39.567616], [-75.512732, 39.578], [-75.525677, 39.584048], [-75.531133, 39.587984], [-75.534477, 39.590384], [-75.537213, 39.592944], [-75.53954, 39.594251], [-75.539949, 39.594384], [-75.543965, 39.596], [-75.545405, 39.596784], [-75.55587, 39.605824], [-75.559446, 39.629812], [-75.526844, 39.655713], [-75.526344, 39.656413], [-75.509342, 39.685313], [-75.509742, 39.686113], [-75.504042, 39.698313], [-75.475384, 39.731057], [-75.474168, 39.735473], [-75.469239, 39.743613], [-75.466263, 39.750737], [-75.466249, 39.750769], [-75.448135, 39.773969], [-75.440623, 39.780926]]], "type": "Polygon"}, "id": "34033", "properties": {"CENSUSAREA": 331.899, "COUNTY": "033", "GEO_ID": "0500000US34033", "LSAD": "County", "NAME": "Salem", "STATE": "34"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.106878, 40.192279], [-75.299774, 40.307835], [-75.484057, 40.418451], [-75.409733, 40.487984], [-75.367911, 40.514601], [-75.36661, 40.515424], [-75.338633, 40.534068], [-75.333514, 40.537057], [-75.196803, 40.60858], [-75.190858, 40.591342], [-75.190161, 40.589321], [-75.147368, 40.573152], [-75.135389, 40.575624], [-75.117292, 40.573211], [-75.100325, 40.567811], [-75.068615, 40.542223], [-75.067344, 40.536428], [-75.06509, 40.526148], [-75.065853, 40.519495], [-75.070568, 40.455165], [-75.061489, 40.422848], [-75.058848, 40.418065], [-75.035548, 40.406309], [-75.024775, 40.403455], [-74.937954, 40.340634], [-74.860492, 40.284584], [-74.770706, 40.214908], [-74.758613, 40.201342], [-74.722304, 40.160609], [-74.721604, 40.15381], [-74.724179, 40.147324], [-74.724304, 40.14701], [-74.740605, 40.13521], [-74.838008, 40.10091], [-74.900236, 40.077149], [-74.97429, 40.048872], [-74.984893, 40.057287], [-74.971268, 40.073744], [-74.958841, 40.082503], [-74.956164, 40.095745], [-74.961342, 40.097496], [-74.964991, 40.118635], [-74.981947, 40.120245], [-75.005946, 40.132524], [-75.00853, 40.133992], [-75.015066, 40.137992], [-75.104874, 40.191109], [-75.106878, 40.192279]]], "type": "Polygon"}, "id": "42017", "properties": {"CENSUSAREA": 604.307, "COUNTY": "017", "GEO_ID": "0500000US42017", "LSAD": "County", "NAME": "Bucks", "STATE": "42"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.361066, 40.065543], [-75.414991, 40.041787], [-75.435816, 39.985059], [-75.562539, 39.901638], [-75.594846, 39.837286], [-75.595756, 39.837156], [-75.634706, 39.830164], [-75.641518, 39.828363], [-75.662822, 39.82115], [-75.685991, 39.811054], [-75.716969, 39.791998], [-75.739705, 39.772623], [-75.788359, 39.721811], [-75.799563, 39.721882], [-75.810068, 39.721906], [-76.013067, 39.72192], [-76.027618, 39.721833], [-76.135584, 39.721556], [-76.066685, 39.759969], [-75.991644, 39.868713], [-75.985056, 39.937871], [-75.942997, 40.109266], [-75.873375, 40.137107], [-75.729863, 40.224489], [-75.696782, 40.241863], [-75.592657, 40.225491], [-75.573338, 40.195303], [-75.562878, 40.197361], [-75.557148, 40.207213], [-75.549174, 40.189542], [-75.525945, 40.148611], [-75.361066, 40.065543]]], "type": "Polygon"}, "id": "42029", "properties": {"CENSUSAREA": 750.508, "COUNTY": "029", "GEO_ID": "0500000US42029", "LSAD": "County", "NAME": "Chester", "STATE": "42"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.562539, 39.901638], [-75.435816, 39.985059], [-75.414991, 40.041787], [-75.361066, 40.065543], [-75.356534, 40.062787], [-75.349457, 40.052905], [-75.276482, 39.976959], [-75.262539, 39.876578], [-75.24047, 39.872381], [-75.215722, 39.876087], [-75.210972, 39.865706], [-75.235026, 39.856613], [-75.271159, 39.84944], [-75.3065, 39.849812], [-75.374635, 39.82577], [-75.390169, 39.816549], [-75.415041, 39.801786], [-75.428038, 39.809212], [-75.45374, 39.820312], [-75.498843, 39.833312], [-75.539346, 39.838211], [-75.579849, 39.838526], [-75.5799, 39.838522], [-75.593082, 39.8375], [-75.593666, 39.837455], [-75.594846, 39.837286], [-75.562539, 39.901638]]], "type": "Polygon"}, "id": "42045", "properties": {"CENSUSAREA": 183.843, "COUNTY": "045", "GEO_ID": "0500000US42045", "LSAD": "County", "NAME": "Delaware", "STATE": "42"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.264431, 40.054094], [-75.176438, 40.084649], [-75.151596, 40.070328], [-75.135193, 40.061031], [-75.129021, 40.057091], [-75.124916, 40.054684], [-75.109406, 40.04584], [-75.087425, 40.063599], [-75.096733, 40.068989], [-75.015066, 40.137992], [-75.00853, 40.133992], [-75.005946, 40.132524], [-74.981947, 40.120245], [-74.964991, 40.118635], [-74.961342, 40.097496], [-74.956164, 40.095745], [-74.958841, 40.082503], [-74.971268, 40.073744], [-74.984893, 40.057287], [-74.97429, 40.048872], [-74.974713, 40.048711], [-75.014343, 40.020976], [-75.056039, 39.991795], [-75.072017, 39.980612], [-75.085754, 39.967572], [-75.13322, 39.922512], [-75.153925, 39.906144], [-75.184952, 39.881615], [-75.210425, 39.865913], [-75.210972, 39.865706], [-75.215722, 39.876087], [-75.24047, 39.872381], [-75.262539, 39.876578], [-75.276482, 39.976959], [-75.263687, 39.982658], [-75.256119, 39.987301], [-75.249214, 39.990547], [-75.264431, 40.054094]]], "type": "Polygon"}, "id": "42101", "properties": {"CENSUSAREA": 134.101, "COUNTY": "101", "GEO_ID": "0500000US42101", "LSAD": "County", "NAME": "Philadelphia", "STATE": "42"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-74.900236, 40.077149], [-74.838008, 40.10091], [-74.740605, 40.13521], [-74.724304, 40.14701], [-74.724179, 40.147324], [-74.59477, 40.137875], [-74.593987, 40.137541], [-74.593354, 40.137855], [-74.59265, 40.137818], [-74.592468, 40.138494], [-74.591754, 40.137981], [-74.591221, 40.137913], [-74.589954, 40.138879], [-74.589638, 40.138741], [-74.589614, 40.13819], [-74.589318, 40.138051], [-74.587847, 40.138237], [-74.553105, 40.07913], [-74.528808, 40.036964], [-74.434653, 39.854803], [-74.389905, 39.773428], [-74.390399, 39.596037], [-74.417393, 39.557255], [-74.479558, 39.55597], [-74.621959, 39.626633], [-74.736309, 39.729909], [-74.758064, 39.743695], [-74.772894, 39.750929], [-74.791478, 39.772119], [-74.812471, 39.785269], [-74.845183, 39.79], [-74.876499, 39.781647], [-74.889062, 39.781804], [-74.902546, 39.790797], [-74.903267, 39.791247], [-74.926935, 39.873839], [-74.932174, 39.887532], [-74.951823, 39.90147], [-74.964146, 39.920683], [-74.983717, 39.92694], [-74.984549, 39.931238], [-74.974879, 39.938382], [-74.988925, 39.94105], [-74.994442, 39.939266], [-75.014966, 39.946546], [-75.01345, 39.954188], [-75.013114, 39.956433], [-75.017537, 39.959087], [-75.016653, 39.960623], [-75.017468, 39.963509], [-75.018723, 39.963664], [-75.019212, 39.967462], [-75.010146, 39.979768], [-75.035461, 39.995951], [-75.056039, 39.991795], [-75.014343, 40.020976], [-74.974713, 40.048711], [-74.97429, 40.048872], [-74.900236, 40.077149]]], "type": "Polygon"}, "id": "34005", "properties": {"CENSUSAREA": 798.576, "COUNTY": "005", "GEO_ID": "0500000US34005", "LSAD": "County", "NAME": "Burlington", "STATE": "34"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-75.361066, 40.065543], [-75.525945, 40.148611], [-75.549174, 40.189542], [-75.557148, 40.207213], [-75.562878, 40.197361], [-75.573338, 40.195303], [-75.592657, 40.225491], [-75.696782, 40.241863], [-75.695955, 40.242359], [-75.529694, 40.446995], [-75.484057, 40.418451], [-75.299774, 40.307835], [-75.106878, 40.192279], [-75.104874, 40.191109], [-75.015066, 40.137992], [-75.096733, 40.068989], [-75.087425, 40.063599], [-75.109406, 40.04584], [-75.124916, 40.054684], [-75.129021, 40.057091], [-75.135193, 40.061031], [-75.151596, 40.070328], [-75.176438, 40.084649], [-75.264431, 40.054094], [-75.249214, 39.990547], [-75.256119, 39.987301], [-75.263687, 39.982658], [-75.276482, 39.976959], [-75.349457, 40.052905], [-75.356534, 40.062787], [-75.361066, 40.065543]]], "type": "Polygon"}, "id": "42091", "properties": {"CENSUSAREA": 483.04, "COUNTY": "091", "GEO_ID": "0500000US42091", "LSAD": "County", "NAME": "Montgomery", "STATE": "42"}, "type": "Feature"}, {"geometry": {"coordinates": [[[[-75.564927, 39.583248], [-75.576271, 39.588144], [-75.578719, 39.591504], [-75.579615, 39.598656], [-75.565823, 39.590608], [-75.564927, 39.583248]]], [[[-75.55587, 39.605824], [-75.561934, 39.605216], [-75.567694, 39.613744], [-75.571759, 39.623584], [-75.570798, 39.626768], [-75.559446, 39.629812], [-75.55587, 39.605824]]], [[[-75.594846, 39.837286], [-75.593666, 39.837455], [-75.593082, 39.8375], [-75.5799, 39.838522], [-75.579849, 39.838526], [-75.539346, 39.838211], [-75.498843, 39.833312], [-75.45374, 39.820312], [-75.428038, 39.809212], [-75.415041, 39.801786], [-75.416095, 39.79583], [-75.437938, 39.783413], [-75.440623, 39.780926], [-75.448135, 39.773969], [-75.466249, 39.750769], [-75.466263, 39.750737], [-75.469239, 39.743613], [-75.474168, 39.735473], [-75.475384, 39.731057], [-75.504042, 39.698313], [-75.509742, 39.686113], [-75.529744, 39.692613], [-75.562246, 39.656712], [-75.587147, 39.651012], [-75.611969, 39.621968], [-75.613153, 39.62096], [-75.613377, 39.620288], [-75.614065, 39.61832], [-75.614929, 39.615952], [-75.614273, 39.61464], [-75.613345, 39.613056], [-75.613665, 39.61256], [-75.613233, 39.607408], [-75.613477, 39.606861], [-75.613473, 39.606832], [-75.613793, 39.606192], [-75.611905, 39.597568], [-75.611873, 39.597408], [-75.60464, 39.58992], [-75.603584, 39.58896], [-75.592224, 39.583568], [-75.591984, 39.583248], [-75.587744, 39.580672], [-75.5872, 39.580256], [-75.586608, 39.57888], [-75.586016, 39.578448], [-75.571599, 39.567728], [-75.570783, 39.56728], [-75.563034, 39.56224], [-75.564649, 39.559922], [-75.565636, 39.558509], [-75.569359, 39.540589], [-75.569418, 39.539124], [-75.570362, 39.527223], [-75.560728, 39.520472], [-75.566933, 39.508273], [-75.576436, 39.509195], [-75.587729, 39.496353], [-75.587729, 39.495369], [-75.593068, 39.479186], [-75.593068, 39.477996], [-75.589901, 39.462022], [-75.589439, 39.460812], [-75.580185, 39.450786], [-75.578914, 39.44788], [-75.570985, 39.442486], [-75.57183, 39.438897], [-75.55589, 39.430351], [-75.538512, 39.416502], [-75.535977, 39.409384], [-75.523583, 39.391583], [-75.521682, 39.387871], [-75.512996, 39.366153], [-75.512372, 39.365656], [-75.584341, 39.308718], [-75.760104, 39.296817], [-75.766667, 39.377216], [-75.766693, 39.377537], [-75.77924, 39.534737], [-75.779383, 39.536522], [-75.78689, 39.630575], [-75.78745, 39.637455], [-75.788616, 39.680742], [-75.788658, 39.681911], [-75.788395, 39.700031], [-75.788395, 39.700287], [-75.788359, 39.721811], [-75.739705, 39.772623], [-75.716969, 39.791998], [-75.685991, 39.811054], [-75.662822, 39.82115], [-75.641518, 39.828363], [-75.634706, 39.830164], [-75.595756, 39.837156], [-75.594846, 39.837286]]]], "type": "MultiPolygon"}, "id": "10003", "properties": {"CENSUSAREA": 426.286, "COUNTY": "003", "GEO_ID": "0500000US10003", "LSAD": "County", "NAME": "New Castle", "STATE": "10"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_3b53acb66c2eaca9990f46584c4f8710.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    return div
+    }
+    ,{
+  "toLocaleString": false,
+  "maxWidth": 300,
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_3b53acb66c2eaca9990f46584c4f8710.addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var marker_9382f5a6975a5206155ea9fcb1c71d91 = L.marker(
+                [39.803855407825324, -74.96409074177693],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_c2b766431f697ffabe7a7c08ac76f530 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eCamden County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_445bdce17b2a433095d280ff6a37d91b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3fcce3a954a64289ce4bdcc90cbf69f7 = $(`<div id="html_3fcce3a954a64289ce4bdcc90cbf69f7" style="width: 100.0%; height: 100.0%;">Camden County</div>`)[0];
+                popup_445bdce17b2a433095d280ff6a37d91b.setContent(html_3fcce3a954a64289ce4bdcc90cbf69f7);
+            
+        
+
+        marker_9382f5a6975a5206155ea9fcb1c71d91.bindPopup(popup_445bdce17b2a433095d280ff6a37d91b)
+        ;
+
+        
+    
+    
+                marker_9382f5a6975a5206155ea9fcb1c71d91.setIcon(div_icon_c2b766431f697ffabe7a7c08ac76f530);
+            
+    
+            var marker_e936010969279742e869c21dc29ce442 = L.marker(
+                [39.714835034913605, -75.14145084490355],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_f48cbd19b5ee8f92e51086a378cc80c2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eGloucester County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_b024a77e7ae32849e83bc8908535ec0d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f7de130bdaefc85654be7fce1de86fc = $(`<div id="html_4f7de130bdaefc85654be7fce1de86fc" style="width: 100.0%; height: 100.0%;">Gloucester County</div>`)[0];
+                popup_b024a77e7ae32849e83bc8908535ec0d.setContent(html_4f7de130bdaefc85654be7fce1de86fc);
+            
+        
+
+        marker_e936010969279742e869c21dc29ce442.bindPopup(popup_b024a77e7ae32849e83bc8908535ec0d)
+        ;
+
+        
+    
+    
+                marker_e936010969279742e869c21dc29ce442.setIcon(div_icon_f48cbd19b5ee8f92e51086a378cc80c2);
+            
+    
+            var marker_b86da3910ef4d3b299a6632a618f7795 = L.marker(
+                [39.58393986321682, -75.34831941619397],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_1c207f3d4c787f64fcd022543a2ee502 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eSalem County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_75f44bdc4f95bba90489b2d16367cfad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2565eb06ba902cabeb25916d290a0baa = $(`<div id="html_2565eb06ba902cabeb25916d290a0baa" style="width: 100.0%; height: 100.0%;">Salem County</div>`)[0];
+                popup_75f44bdc4f95bba90489b2d16367cfad.setContent(html_2565eb06ba902cabeb25916d290a0baa);
+            
+        
+
+        marker_b86da3910ef4d3b299a6632a618f7795.bindPopup(popup_75f44bdc4f95bba90489b2d16367cfad)
+        ;
+
+        
+    
+    
+                marker_b86da3910ef4d3b299a6632a618f7795.setIcon(div_icon_1c207f3d4c787f64fcd022543a2ee502);
+            
+    
+            var marker_ae90b9bd45cc08a5aa71e6d07ca06a65 = L.marker(
+                [40.33533393638281, -75.10573678249436],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_f3745f2bdb9c6e1a0bb2f06c562282bd = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eBucks County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_ed454e4bfcfc111bcd42b1ad34dabd34 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c8e458f8cbf24b46f794d6b2127ed34c = $(`<div id="html_c8e458f8cbf24b46f794d6b2127ed34c" style="width: 100.0%; height: 100.0%;">Bucks County</div>`)[0];
+                popup_ed454e4bfcfc111bcd42b1ad34dabd34.setContent(html_c8e458f8cbf24b46f794d6b2127ed34c);
+            
+        
+
+        marker_ae90b9bd45cc08a5aa71e6d07ca06a65.bindPopup(popup_ed454e4bfcfc111bcd42b1ad34dabd34)
+        ;
+
+        
+    
+    
+                marker_ae90b9bd45cc08a5aa71e6d07ca06a65.setIcon(div_icon_f3745f2bdb9c6e1a0bb2f06c562282bd);
+            
+    
+            var marker_3cb7fad045f6fa40d74611cda5a55dfd = L.marker(
+                [39.973872756570614, -75.7459736125578],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_5b557dd19653fabfb9b306e6cc26f3fb = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eChester County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_75afd7dcfa9ef4ef5ff59c711932115c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2142fce360f1f3b2f094f4a852ff97c = $(`<div id="html_b2142fce360f1f3b2f094f4a852ff97c" style="width: 100.0%; height: 100.0%;">Chester County</div>`)[0];
+                popup_75afd7dcfa9ef4ef5ff59c711932115c.setContent(html_b2142fce360f1f3b2f094f4a852ff97c);
+            
+        
+
+        marker_3cb7fad045f6fa40d74611cda5a55dfd.bindPopup(popup_75afd7dcfa9ef4ef5ff59c711932115c)
+        ;
+
+        
+    
+    
+                marker_3cb7fad045f6fa40d74611cda5a55dfd.setIcon(div_icon_5b557dd19653fabfb9b306e6cc26f3fb);
+            
+    
+            var marker_f3f1fecb2599112c035d555111cae35b = L.marker(
+                [39.915783876494736, -75.39949338833998],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_a36329e1fe122a54a98b32ae609e0fb2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eDelaware County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_11a1529fdbf88204afb54386b1673a0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1fc162c019bdab98c9892beb0766b08 = $(`<div id="html_e1fc162c019bdab98c9892beb0766b08" style="width: 100.0%; height: 100.0%;">Delaware County</div>`)[0];
+                popup_11a1529fdbf88204afb54386b1673a0f.setContent(html_e1fc162c019bdab98c9892beb0766b08);
+            
+        
+
+        marker_f3f1fecb2599112c035d555111cae35b.bindPopup(popup_11a1529fdbf88204afb54386b1673a0f)
+        ;
+
+        
+    
+    
+                marker_f3f1fecb2599112c035d555111cae35b.setIcon(div_icon_a36329e1fe122a54a98b32ae609e0fb2);
+            
+    
+            var marker_2ca3edd1edbe57c6f96f9801e3de3d67 = L.marker(
+                [40.004363062407904, -75.13968232823345],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_f39efde8d17023dd46cb343b0ed0ac89 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003ePhiladelphia County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_a5bb8e5cccd39bbbc18001773eb90f0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f021165cc49e798f6e94bf78b5af752 = $(`<div id="html_9f021165cc49e798f6e94bf78b5af752" style="width: 100.0%; height: 100.0%;">Philadelphia County</div>`)[0];
+                popup_a5bb8e5cccd39bbbc18001773eb90f0f.setContent(html_9f021165cc49e798f6e94bf78b5af752);
+            
+        
+
+        marker_2ca3edd1edbe57c6f96f9801e3de3d67.bindPopup(popup_a5bb8e5cccd39bbbc18001773eb90f0f)
+        ;
+
+        
+    
+    
+                marker_2ca3edd1edbe57c6f96f9801e3de3d67.setIcon(div_icon_f39efde8d17023dd46cb343b0ed0ac89);
+            
+    
+            var marker_7988cf1ceab2e5abe124e14ded0eedc5 = L.marker(
+                [39.875301171511076, -74.66781519414602],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_01ab98fc7b9bc9c0ba8a285348d5da5c = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eBurlington County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_fc20621d635c99461ec8c1459226346e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5bf59995d8a63ba9b4fba59fd02e6af7 = $(`<div id="html_5bf59995d8a63ba9b4fba59fd02e6af7" style="width: 100.0%; height: 100.0%;">Burlington County</div>`)[0];
+                popup_fc20621d635c99461ec8c1459226346e.setContent(html_5bf59995d8a63ba9b4fba59fd02e6af7);
+            
+        
+
+        marker_7988cf1ceab2e5abe124e14ded0eedc5.bindPopup(popup_fc20621d635c99461ec8c1459226346e)
+        ;
+
+        
+    
+    
+                marker_7988cf1ceab2e5abe124e14ded0eedc5.setIcon(div_icon_01ab98fc7b9bc9c0ba8a285348d5da5c);
+            
+    
+            var marker_fa517c3b1aa77b88b8d1991b08bbad04 = L.marker(
+                [40.212907544268695, -75.36814635989448],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_58b3effae7f4c047fe65c54dc2574db3 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eMontgomery County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_ad31937a5220b44865a3eef547e463ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d821a5cddaa7036d997e1c50d412c61 = $(`<div id="html_4d821a5cddaa7036d997e1c50d412c61" style="width: 100.0%; height: 100.0%;">Montgomery County</div>`)[0];
+                popup_ad31937a5220b44865a3eef547e463ba.setContent(html_4d821a5cddaa7036d997e1c50d412c61);
+            
+        
+
+        marker_fa517c3b1aa77b88b8d1991b08bbad04.bindPopup(popup_ad31937a5220b44865a3eef547e463ba)
+        ;
+
+        
+    
+    
+                marker_fa517c3b1aa77b88b8d1991b08bbad04.setIcon(div_icon_58b3effae7f4c047fe65c54dc2574db3);
+            
+    
+            var marker_5619a7a377a6a3676ec07963bce9b6e8 = L.marker(
+                [39.5818488658598, -75.64786882923885],
+                {
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+        
+    
+            var div_icon_3cf5a41d76e93c1298aa54f965b27d52 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black; font-weight: bold;\"\u003eNew Castle County\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_8b78108a4841e69903f25d574248db7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5cff7317ee9744b1da6d1db8d16f8843 = $(`<div id="html_5cff7317ee9744b1da6d1db8d16f8843" style="width: 100.0%; height: 100.0%;">New Castle County</div>`)[0];
+                popup_8b78108a4841e69903f25d574248db7c.setContent(html_5cff7317ee9744b1da6d1db8d16f8843);
+            
+        
+
+        marker_5619a7a377a6a3676ec07963bce9b6e8.bindPopup(popup_8b78108a4841e69903f25d574248db7c)
+        ;
+
+        
+    
+    
+                marker_5619a7a377a6a3676ec07963bce9b6e8.setIcon(div_icon_3cf5a41d76e93c1298aa54f965b27d52);
+            
+    
+            var layer_control_c2b0fcd9e7121a24e3a1c50f42fcf2c4_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_9ea533f6d560fdf036f6b71215c7338f,
+                },
+                overlays :  {
+                    "Target Counties" : geo_json_3b53acb66c2eaca9990f46584c4f8710,
+                },
+            };
+            let layer_control_c2b0fcd9e7121a24e3a1c50f42fcf2c4 = L.control.layers(
+                layer_control_c2b0fcd9e7121a24e3a1c50f42fcf2c4_layers.base_layers,
+                layer_control_c2b0fcd9e7121a24e3a1c50f42fcf2c4_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_9862e8e6968f543c2e13b3f8421d1f82);
+
+        
+</script>
+</html>
